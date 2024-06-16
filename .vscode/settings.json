@@ -1,0 +1,11 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit",
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "cSpell.words": ["Chakra", "tanstack", "Zustand"],
+  "typescript.preferences.autoImportFileExcludePatterns": ["node/test.d.ts"]
+}

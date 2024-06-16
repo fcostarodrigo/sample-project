@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "tsc --noEmit && prettier --ignore-unknown --check . && eslint --report-unused-disable-directives --max-warnings 0 . && vitest run",
+    "fix": "prettier --ignore-unknown --write . && eslint --fix ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.592.0",
+    "@aws-sdk/client-secrets-manager": "^3.598.0",
+    "@aws-sdk/lib-dynamodb": "^3.592.0",
+    "share": "workspace:*",
+    "web-push": "^3.6.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/aws-lambda": "^8.10.138",
+    "@types/node": "^20.14.2",
+    "@types/web-push": "^3.6.3",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-perfectionist": "^2.10.0",
+    "eslint-plugin-unicorn": "^53.0.0",
+    "eslint-plugin-vitest": "~0.4.1",
+    "prettier": "^3.3.1",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
+    "*.{ts,tsx,js,cjs,mjs}": [
+      "eslint --report-unused-disable-directives --max-warnings 0 --fix",
+      "vitest related --passWithNoTests --run"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "all"
+  }
+}

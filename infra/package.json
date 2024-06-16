@@ -1,0 +1,49 @@
+{
+  "name": "infra",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "infra": "bin/sample.js"
+  },
+  "scripts": {
+    "setup": "cdk bootstrap && tsx src/scripts/webPushNotificationKeysSetup.ts",
+    "deploy": "tsx src/scripts/buildFrontend.ts && cdk deploy --require-approval never",
+    "test": "tsc --noEmit && prettier --ignore-unknown --check . && eslint --report-unused-disable-directives --max-warnings 0 .",
+    "fix": "prettier --ignore-unknown --write . && eslint --fix ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.598.0",
+    "aws-cdk-lib": "2.145.0",
+    "backend": "workspace:*",
+    "constructs": "^10.0.0",
+    "share": "workspace:*",
+    "vite": "^5.2.13",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "20.12.7",
+    "@types/web-push": "^3.6.3",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
+    "aws-cdk": "2.145.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-perfectionist": "^2.10.0",
+    "eslint-plugin-unicorn": "^53.0.0",
+    "eslint-plugin-vitest": "^0.4.1",
+    "prettier": "^3.3.1",
+    "tsx": "^4.15.5",
+    "typescript": "~5.4.5"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
+    "*.{ts,tsx,js,cjs,mjs}": [
+      "eslint --report-unused-disable-directives --max-warnings 0 --fix"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "all"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "sample-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "pnpm --filter frontend run start",
+    "setup": "pnpm --filter infra run setup",
+    "deploy": "pnpm --filter infra run deploy",
+    "test": "prettier --ignore-unknown --check \"*.*\" && pnpm test --recursive --parallel",
+    "fix": "prettier --ignore-unknown --write \"*.*\" && pnpm fix --recursive --parallel",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "Rodrigo Fernandes da Costa",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.21.4",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.3.1",
+    "vitest": "^1.6.0"
+  },
+  "lint-staged": {
+    "*.*": "prettier --ignore-unknown --write"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "all"
+  }
+}
