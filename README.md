@@ -41,7 +41,7 @@ In the root of the monorepo, there are some tsconfig files meant to be extended 
 
 In each package, there is a main `tsconfig.json` file that references the others configs which extends from the root tsconfig files and include the files of the project.
 
-![TypeScript configuration diagram](./docs/tsconfig.drawio.svg)
+![TypeScript configuration diagram](./docs/tsconfig-2.drawio.svg)
 
 ## Stack
 
