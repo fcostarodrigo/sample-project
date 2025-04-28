@@ -25,7 +25,7 @@ The idea of using the web push notification API to replace websockets is to take
 
 How those pieces interact is represented below in the sequence diagram. I omitted the responses back from databases and other sources to keep the diagram simple. And instead of listing AWS Lambda and AWS API Gateway as separate entities, I just used the entity "backend"..
 
-![Sequence diagram](./docs/sequence.drawio.svg)
+![Sequence diagram](./docs/sequence-2.drawio.svg)
 
 The advantage of using web push notifications is that the browser vendor will handle the connection with the browser and the server will not need to keep a connection open for each client. Ths disadvantage is that, since this service is available for free and is meant to be used for notifications alone, it can't be used as general purpose solution since it could be throttle if used too much.
 
