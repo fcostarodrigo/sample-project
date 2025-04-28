@@ -1,5 +1,10 @@
 packages:
-  - "frontend"
-  - "backend"
-  - "infra"
-  - "share"
+  - frontend
+  - backend
+  - infra
+  - share
+
+onlyBuiltDependencies:
+  - "@swc/core"
+  - esbuild
+  - sharp

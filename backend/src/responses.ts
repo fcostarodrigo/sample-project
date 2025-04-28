@@ -1,12 +1,15 @@
-import { APIGatewayProxyResult } from "aws-lambda";
+import type { APIGatewayProxyResult } from "aws-lambda";
+
 import { errorSerializer } from "share";
 
 function makeResponse(statusCode: number) {
-  return (body: unknown, options?: Omit<APIGatewayProxyResult, "body" | "statusCode">): APIGatewayProxyResult => ({
-    body: JSON.stringify(body, errorSerializer),
-    statusCode,
-    ...options,
-  });
+  return (body: unknown, options?: Omit<APIGatewayProxyResult, "body" | "statusCode">): APIGatewayProxyResult => {
+    return {
+      body: JSON.stringify(body, errorSerializer),
+      statusCode,
+      ...options,
+    };
+  };
 }
 
 export const internalServerError = makeResponse(500);

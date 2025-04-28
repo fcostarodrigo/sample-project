@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json",
-  "include": ["src", ".eslintrc.cjs"],
-  "exclude": ["cdk.out"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../tsconfig.node.json",
+  "include": ["src", "eslint.config.ts", "vitest.config.ts"]
 }

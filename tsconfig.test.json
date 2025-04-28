@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "module": "NodeNext",
+    "target": "es2022",
+    "moduleResolution": "node16",
+    "types": ["node"]
+  }
+}

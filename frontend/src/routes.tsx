@@ -1,6 +1,6 @@
-import { RouteObject } from "react-router-dom";
+import { type RouteObject } from "react-router-dom";
 
-import { RouterErrorElement } from "./components/DefaultError";
+import { RouterErrorElement } from "./components/default-error";
 import { Root } from "./root";
 
 export const routes: RouteObject[] = [

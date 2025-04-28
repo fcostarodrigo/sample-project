@@ -1,31 +1,16 @@
-import { APIGatewayProxyEvent } from "aws-lambda";
-import { vi } from "vitest";
+import type { APIGatewayProxyEvent, Context } from "aws-lambda";
 
-export function mockContext() {
-  return {
-    awsRequestId: "1234abc-1234abc-1234abc-1234abc-1234abc",
-    callbackWaitsForEmptyEventLoop: false,
-    clientContext: undefined,
-    done: vi.fn(),
-    fail: vi.fn(),
-    functionName: "SampleStack-saveWebPushSubscriptionLambda1234abc-1234abc",
-    functionVersion: "$LATEST",
-    getRemainingTimeInMillis: vi.fn(),
-    identity: undefined,
-    invokedFunctionArn:
-      "arn:aws:lambda:et-mars-1:123456789:function:SampleStack-saveWebPushSubscriptionLambda1234abc-1234abc",
-    logGroupName: "/aws/lambda/SampleStack-saveWebPushSubscriptionLambda1234abc-1234abc",
-    logStreamName: "2024/06/09/[$LATEST]1234abc1234abc1234abc1234abc",
-    memoryLimitInMB: "128",
-    succeed: vi.fn() as never,
-  };
-}
+import { vi } from "vitest";
 
 export function mockAPIGatewayProxyEvent(body: string, path: string, method = "POST"): APIGatewayProxyEvent {
   return {
     body,
     headers: {
+      "cache-control": "no-cache",
+      "content-type": "text/plain;charset=UTF-8",
       Host: "1234abc.execute-api.us-east-1.amazonaws.com",
+      origin: "https://1234abc.cloudfront.net",
+      pragma: "no-cache",
       "User-Agent": "Amazon CloudFront",
       Via: "2.0 1234abc1234abc1234abc1234abc.cloudfront.net (CloudFront)",
       "X-Amz-Cf-Id": "1234abc1234abc1234abc1234abc1234abc1234abc1234abc==",
@@ -33,15 +18,15 @@ export function mockAPIGatewayProxyEvent(body: string, path: string, method = "P
       "X-Forwarded-For": "203.0.113.0, 203.0.113.0",
       "X-Forwarded-Port": "443",
       "X-Forwarded-Proto": "https",
-      "cache-control": "no-cache",
-      "content-type": "text/plain;charset=UTF-8",
-      origin: "https://1234abc.cloudfront.net",
-      pragma: "no-cache",
     },
     httpMethod: method,
     isBase64Encoded: false,
     multiValueHeaders: {
+      "cache-control": ["no-cache"],
+      "content-type": ["text/plain;charset=UTF-8"],
       Host: ["1234abc.execute-api.us-east-1.amazonaws.com"],
+      origin: ["https://1234abc.cloudfront.net"],
+      pragma: ["no-cache"],
       "User-Agent": ["Amazon CloudFront"],
       Via: ["2.0 1234abc1234abc1234abc1234abc.cloudfront.net (CloudFront)"],
       "X-Amz-Cf-Id": ["1234abc1234abc1234abc1234abc1234abc1234abc1234abc=="],
@@ -49,10 +34,6 @@ export function mockAPIGatewayProxyEvent(body: string, path: string, method = "P
       "X-Forwarded-For": ["203.0.113.0, 203.0.113.0"],
       "X-Forwarded-Port": ["443"],
       "X-Forwarded-Proto": ["https"],
-      "cache-control": ["no-cache"],
-      "content-type": ["text/plain;charset=UTF-8"],
-      origin: ["https://1234abc.cloudfront.net"],
-      pragma: ["no-cache"],
     },
     multiValueQueryStringParameters: null,
     path: `/${path}`,
@@ -97,10 +78,29 @@ export function mockAPIGatewayProxyEvent(body: string, path: string, method = "P
   };
 }
 
-export function mockSaveWebPushSubscriptionEvent() {
-  return mockAPIGatewayProxyEvent(JSON.stringify({}), "web-push-notifications", "POST");
+export function mockContext(): Context {
+  return {
+    awsRequestId: "1234abc-1234abc-1234abc-1234abc-1234abc",
+    callbackWaitsForEmptyEventLoop: false,
+    clientContext: undefined,
+    done: vi.fn(),
+    fail: vi.fn(),
+    functionName: "SampleStack-subscribeLambda1234abc-1234abc",
+    functionVersion: "$LATEST",
+    getRemainingTimeInMillis: vi.fn(),
+    identity: undefined,
+    invokedFunctionArn: "arn:aws:lambda:et-mars-1:123456789:function:SampleStack-subscribeLambda1234abc-1234abc",
+    logGroupName: "/aws/lambda/SampleStack-subscribeLambda1234abc-1234abc",
+    logStreamName: "2024/06/09/[$LATEST]1234abc1234abc1234abc1234abc",
+    memoryLimitInMB: "128",
+    succeed: vi.fn() as never,
+  };
 }
 
 export function mockSendMessageEvent() {
-  return mockAPIGatewayProxyEvent(JSON.stringify({}), "messages", "POST");
+  return mockAPIGatewayProxyEvent(JSON.stringify({ message: "Hello World!" }), "messages", "POST");
+}
+
+export function mockSubscribeEvent() {
+  return mockAPIGatewayProxyEvent(JSON.stringify({}), "subscriptions", "POST");
 }

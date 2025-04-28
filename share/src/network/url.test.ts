@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { formatPath, formatUrl, parseUrl } from "./url.js";
 
-describe(formatUrl, () => {
+describe("formatUrl", () => {
   it("add path to an url", () => {
     const options = { path: "sp/cities/bauru", url: "https://www.example.com/states" };
     const url = "https://www.example.com/states/sp/cities/bauru";
@@ -37,7 +37,7 @@ describe(formatUrl, () => {
   });
 });
 
-describe(parseUrl, () => {
+describe("parseUrl", () => {
   it("should parse a full URL", () => {
     const url = "https://www.example.com:80/states/sp?q=bauru";
     const options = {
@@ -64,7 +64,7 @@ describe(parseUrl, () => {
   });
 });
 
-describe(formatPath, () => {
+describe("formatPath", () => {
   it("should handle extra slashes in the middle", () => {
     expect(formatPath("/test//test")).toBe("/test/test");
   });

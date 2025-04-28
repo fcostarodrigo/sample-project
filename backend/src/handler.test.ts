@@ -1,3 +1,4 @@
+import { sendMessageApi } from "share";
 import { describe, expect, it, vi } from "vitest";
 
 import { makeHandler } from "./handler.js";
@@ -9,14 +10,12 @@ vi.mock("./log");
 
 const logMock = vi.mocked(log);
 
-describe(makeHandler, () => {
+describe("makeHandler", () => {
   it("should log errors", async () => {
     const error = new Error("Ops");
 
-    const handler = makeHandler({
-      handlerFun: () => {
-        throw error;
-      },
+    const handler = makeHandler(sendMessageApi, () => {
+      throw error;
     });
 
     await handler(mockSendMessageEvent(), mockContext(), vi.fn());

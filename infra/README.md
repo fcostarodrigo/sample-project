@@ -12,8 +12,3 @@ The keys are generated during the setup step.
 ## FYI
 
 - [CDK docs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
-
-## Todo
-
-- Handle env like dev, prod and test.
-- Add dashboard for monitoring.

@@ -6,19 +6,20 @@
     "start": "pnpm --filter frontend run start",
     "setup": "pnpm --filter infra run setup",
     "deploy": "pnpm --filter infra run deploy",
-    "test": "prettier --ignore-unknown --check \"*.*\" && pnpm test --recursive --parallel",
-    "fix": "prettier --ignore-unknown --write \"*.*\" && pnpm fix --recursive --parallel",
+    "test": "prettier --ignore-unknown --check \"*.*\" && pnpm run --recursive --parallel test",
+    "fix": "prettier --ignore-unknown --write \"*.*\" && pnpm run --recursive --parallel fix",
     "prepare": "husky"
   },
   "keywords": [],
   "author": "Rodrigo Fernandes da Costa",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.21.4",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.5",
-    "prettier": "^3.3.1",
-    "vitest": "^1.6.0"
+    "esbuild": "^0.25.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "pnpm": "^10.9.0",
+    "prettier": "^3.5.3",
+    "vitest": "^3.1.2"
   },
   "lint-staged": {
     "*.*": "prettier --ignore-unknown --write"
@@ -26,5 +27,15 @@
   "prettier": {
     "printWidth": 120,
     "trailingComma": "all"
+  },
+  "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f",
+  "pnpm": {
+    "packageExtensions": {
+      "eslint-plugin-remeda": {
+        "dependencies": {
+          "lodash-es": "^4.17.21"
+        }
+      }
+    }
   }
 }

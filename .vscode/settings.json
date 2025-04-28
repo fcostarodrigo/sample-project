@@ -3,9 +3,10 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
-    "source.organizeImports": "explicit",
+    "source.organizeImports": "never",
     "source.fixAll": "explicit"
   },
   "cSpell.words": ["Chakra", "tanstack", "Zustand"],
-  "typescript.preferences.autoImportFileExcludePatterns": ["node/test.d.ts"]
+  "typescript.preferences.autoImportFileExcludePatterns": ["node/test.d.ts"],
+  "eslint.workingDirectories": ["./frontend", "./backend", "./infra", "./share"]
 }

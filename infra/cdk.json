@@ -1,5 +1,5 @@
 {
-  "app": "tsx src/sampleApp.ts",
+  "app": "tsx src/sample-app.ts",
   "watch": {
     "include": ["**"],
     "exclude": [

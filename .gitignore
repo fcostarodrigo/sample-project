@@ -12,13 +12,14 @@ lerna-debug.log*
 cdk.out
 
 # TypeScript
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 node_modules
 dist
 dist-ssr
 *.local
 dev-dist
+.env
 
 # Editor directories and files
 .vscode/*

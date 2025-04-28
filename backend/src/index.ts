@@ -1,2 +1,2 @@
-export { saveWebPushSubscriptionEndpoint } from "./endpoints/saveWebPushSubscription.js";
-export { sendMessageEndpoint } from "./endpoints/sendMessage.js";
+export { sendMessageFilePath } from "./api/send-message.js";
+export { subscribeFilePath } from "./api/subscribe.js";

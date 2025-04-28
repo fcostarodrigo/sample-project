@@ -57,6 +57,6 @@ export default defineConfig({
   test: {
     clearMocks: true,
     environment: "happy-dom",
-    setupFiles: ["./src/testUtils/vitestSetup.ts"],
+    setupFiles: ["./src/test-utils/vitest-setup.ts"],
   },
 });
